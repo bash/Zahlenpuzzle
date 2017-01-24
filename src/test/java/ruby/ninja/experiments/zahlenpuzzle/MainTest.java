@@ -6,6 +6,7 @@ import rubys.ninja.experiments.zahlenpuzzle.Main;
 public class MainTest {
     @Test
     public void testInstatiationWorks() {
-        Main.main(null);
+        Main main = new Main();
+        main.main(null);
     }
 }
