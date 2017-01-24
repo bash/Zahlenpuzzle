@@ -41,9 +41,14 @@ public class BoardTest {
         BoardSize pos2 = new BoardSize(0, 1);
 
         Token oldToken1 = board.getTokenAt(pos1);
+        Token oldToken2 = board.getTokenAt(pos2);
 
         board.swapTokens(pos1, pos2);
 
+        Token newToken1 = board.getTokenAt(pos1);
+        Token newToken2 = board.getTokenAt(pos2);
 
+        assertSame(oldToken1, newToken2);
+        assertSame(oldToken2, newToken1);
     }
 }

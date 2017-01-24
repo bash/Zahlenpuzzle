@@ -9,11 +9,15 @@ public class Board {
         this.size = size;
     }
 
-    public Token getTokenAt(BoardSize location) {
+    public Token getTokenAt(BoardSize location) throws Exception {
         return null;
     }
 
     public BoardSize getSize() {
         return size;
+    }
+
+    public void swapTokens(BoardSize pos1, BoardSize pos2) throws Exception {{
+
     }
 }
