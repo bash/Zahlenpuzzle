@@ -1,3 +1,5 @@
+package rubys.ninja.experiments.zahlenpuzzle;
+
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
