@@ -6,7 +6,7 @@ import static org.junit.Assert.assertSame;
 
 public class EmptyTokenTest {
     @Test
-    public void testInstatiationWorks() {
+    public void testInstantiationWorks() {
         Token token = new EmptyToken();
     }
 }
