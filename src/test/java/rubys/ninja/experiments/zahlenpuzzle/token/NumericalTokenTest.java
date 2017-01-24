@@ -10,5 +10,4 @@ public class NumericalTokenTest {
 
         assertSame(1, token.getValue());
     }
-
 }
