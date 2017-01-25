@@ -25,4 +25,9 @@ public class BoardSize {
     public Integer getHeight() {
         return height;
     }
+
+    @Override
+    public String toString() {
+        return "(" + this.getWidth() + ", " + this.getHeight() + ")";
+    }
 }
