@@ -4,7 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 import rubys.ninja.experiments.zahlenpuzzle.board.BoardSize;
 
-import static org.junit.Assert.assertSame;
+import static org.junit.Assert.*;
 
 public class BoardSizeTest {
     private BoardSize size;
@@ -44,5 +44,13 @@ public class BoardSizeTest {
     @Test(expected = Exception.class)
     public void testNegativeHeight() throws Exception {
         BoardSize negativeBoardSize = new BoardSize(0, -3);
+    }
+
+    @Test
+    public void testEquals() throws Exception {
+        BoardSize boardSize = new BoardSize(1, 2);
+
+        assertTrue(boardSize.equals(new BoardSize(1, 2)));
+        assertFalse(boardSize.equals(new BoardSize(2, 1)));
     }
 }
