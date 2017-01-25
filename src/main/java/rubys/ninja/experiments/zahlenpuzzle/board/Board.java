@@ -2,11 +2,15 @@ package rubys.ninja.experiments.zahlenpuzzle.board;
 
 import rubys.ninja.experiments.zahlenpuzzle.token.Token;
 
+import java.util.List;
+
 public class Board {
     private BoardSize size;
+    private List<Token> tokens;
 
-    public Board(BoardSize size) {
-        this.size = size;
+    public Board(BoardInitializer initializer) {
+        this.size = initializer.getBoardSize();
+        this.tokens = initializer.getTokens();
     }
 
     public Token getTokenAt(BoardSize location) throws Exception {
