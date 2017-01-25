@@ -4,9 +4,15 @@ public class BoardSize {
     private Integer width;
     private Integer height;
 
-    public BoardSize(Integer width, Integer height) throws Exception {
+    public class InvalidValueException extends Exception {
+        InvalidValueException(String message) {
+            super(message);
+        }
+    }
+
+    public BoardSize(Integer width, Integer height) throws InvalidValueException {
         if (width < 0 || height < 0)
-            throw new Exception("Size cannot be negative");
+            throw new InvalidValueException("Size cannot be negative");
 
         this.width = width;
         this.height = height;

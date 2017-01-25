@@ -10,7 +10,7 @@ public class BoardSizeTest {
     private BoardSize size;
 
     @Before
-    public void setup() throws Exception {
+    public void setup() throws BoardSize.InvalidValueException {
         size = new BoardSize(4, 52);
     }
 
@@ -25,29 +25,29 @@ public class BoardSizeTest {
     }
 
     @Test
-    public void testZeroWidth() throws Exception {
+    public void testZeroWidth() throws BoardSize.InvalidValueException {
         BoardSize zeroBoardSize = new BoardSize(0, 0);
         assertSame(0, zeroBoardSize.getWidth());
     }
 
     @Test
-    public void testZeroHeight() throws Exception {
+    public void testZeroHeight() throws BoardSize.InvalidValueException {
         BoardSize zeroBoardSize = new BoardSize(0, 0);
         assertSame(0, zeroBoardSize.getHeight());
     }
 
-    @Test(expected = Exception.class)
+    @Test(expected = BoardSize.InvalidValueException.class)
     public void testNegativeWidth() throws Exception {
         BoardSize negativeBoardSize = new BoardSize(-3, 3);
     }
 
-    @Test(expected = Exception.class)
+    @Test(expected = BoardSize.InvalidValueException.class)
     public void testNegativeHeight() throws Exception {
         BoardSize negativeBoardSize = new BoardSize(0, -3);
     }
 
     @Test
-    public void testEquals() throws Exception {
+    public void testEquals() throws BoardSize.InvalidValueException {
         BoardSize boardSize = new BoardSize(1, 2);
 
         assertTrue(boardSize.equals(new BoardSize(1, 2)));
@@ -55,7 +55,7 @@ public class BoardSizeTest {
     }
 
     @Test
-    public void testToString() throws Exception {
+    public void testToString() throws BoardSize.InvalidValueException {
         BoardSize boardSize = new BoardSize(0, 0);
 
         assertEquals("(0, 0)", boardSize.toString());
