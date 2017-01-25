@@ -1,33 +1,56 @@
 package ruby.ninja.experiments.zahlenpuzzle.board;
 
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import rubys.ninja.experiments.zahlenpuzzle.board.Board;
+import rubys.ninja.experiments.zahlenpuzzle.board.BoardInitializer;
 import rubys.ninja.experiments.zahlenpuzzle.board.BoardSize;
 import rubys.ninja.experiments.zahlenpuzzle.token.Token;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertSame;
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.junit.Assert.*;
 
 public class BoardTest {
     private Board board;
 
+    private class MockToken implements Token {
+    }
+
+    private class MockInitializer implements BoardInitializer {
+        public List<Token> getTokens() {
+            return new ArrayList<Token>() {{
+               add(new MockToken());
+               add(new MockToken());
+               add(new MockToken());
+               add(new MockToken());
+            }};
+        }
+
+        public BoardSize getBoardSize() {
+            try {
+                return new BoardSize(2, 2);
+            } catch (Exception ignored) {
+                fail();
+                return null;
+            }
+        }
+    }
+
     @Before
     public void setup() throws Exception {
-        board = new Board(new BoardSize(4, 5));
+        board = new Board(new MockInitializer());
     }
 
     @Test
     public void TestGetSize() throws Exception {
-        assertEquals(new BoardSize(4, 5), board.getSize());
+        assertEquals(new BoardSize(2, 2), board.getSize());
     }
 
     @Test
     public void TestGetToken() throws Exception {
-        Token token = board.getTokenAt(new BoardSize(3, 3));
-        assertNotNull(token);
+        board.getTokenAt(new BoardSize(1, 0));
     }
 
     @Test(expected = Exception.class)
