@@ -53,4 +53,11 @@ public class BoardSizeTest {
         assertTrue(boardSize.equals(new BoardSize(1, 2)));
         assertFalse(boardSize.equals(new BoardSize(2, 1)));
     }
+
+    @Test
+    public void testToString() throws Exception {
+        BoardSize boardSize = new BoardSize(0, 0);
+
+        assertEquals("(0, 0)", boardSize.toString());
+    }
 }
