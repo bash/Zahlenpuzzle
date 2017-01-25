@@ -17,7 +17,6 @@ public class Board {
         return size;
     }
 
-    public void swapTokens(BoardSize pos1, BoardSize pos2) throws Exception {{
-
+    public void swapTokens(BoardSize pos1, BoardSize pos2) throws Exception {
     }
 }
