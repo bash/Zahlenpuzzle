@@ -49,10 +49,27 @@ public class BoardSizeTest {
     @Test
     public void testEquals() throws BoardSize.InvalidValueException {
         BoardSize boardSize = new BoardSize(1, 2);
-
         assertTrue(boardSize.equals(new BoardSize(1, 2)));
+    }
+
+    @Test
+    public void testNotEquals() throws BoardSize.InvalidValueException {
+        BoardSize boardSize = new BoardSize(1, 2);
         assertFalse(boardSize.equals(new BoardSize(2, 1)));
     }
+
+    @Test
+    public void testNotEqualsSame() throws BoardSize.InvalidValueException {
+        BoardSize boardSize = new BoardSize(1, 2);
+        assertFalse(boardSize.equals(boardSize));
+    }
+
+    @Test
+    public void testNotEqualsNull() throws BoardSize.InvalidValueException {
+        BoardSize boardSize = new BoardSize(1, 2);
+        assertFalse(boardSize.equals(null));
+    }
+
 
     @Test
     public void testToString() throws BoardSize.InvalidValueException {

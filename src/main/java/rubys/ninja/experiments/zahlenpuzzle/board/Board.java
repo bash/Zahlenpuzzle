@@ -13,7 +13,7 @@ public class Board {
         this.tokens = initializer.getTokens();
     }
 
-    public Token getTokenAt(BoardSize location) throws Exception {
+    public Token getTokenAt(BoardSize location) throws IndexOutOfBoundsException {
         int index = getIndexFromLocation(location);
 
         return tokens.get(index);
@@ -23,7 +23,7 @@ public class Board {
         return size;
     }
 
-    public void swapTokens(BoardSize pos1, BoardSize pos2) throws Exception {
+    public void swapTokens(BoardSize pos1, BoardSize pos2) throws IndexOutOfBoundsException {
         Token token1 = getTokenAt(pos1);
         Token token2 = getTokenAt(pos2);
 
