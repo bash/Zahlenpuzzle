@@ -13,6 +13,7 @@ import java.util.List;
 public class HardcodedInitializer implements BoardInitializer {
     public List<Token> getTokens() {
         return new ArrayList<Token>() {{
+           add(new EmptyToken());
            add(new NumericalToken(15));
            add(new NumericalToken(4));
            add(new NumericalToken(1));
@@ -26,7 +27,6 @@ public class HardcodedInitializer implements BoardInitializer {
            add(new NumericalToken(9));
            add(new NumericalToken(14));
            add(new NumericalToken(11));
-           add(new EmptyToken());
            add(new NumericalToken(13));
            add(new NumericalToken(2));
         }};

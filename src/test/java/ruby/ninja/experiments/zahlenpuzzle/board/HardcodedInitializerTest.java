@@ -21,20 +21,20 @@ public class HardcodedInitializerTest {
 
         List<Token> tokens = initializer.getTokens();
 
-        assertNumericalToken(tokens.get(0), 15);
-        assertNumericalToken(tokens.get(1), 4);
-        assertNumericalToken(tokens.get(2), 1);
-        assertNumericalToken(tokens.get(3), 6);
-        assertNumericalToken(tokens.get(4), 3);
-        assertNumericalToken(tokens.get(5), 8);
-        assertNumericalToken(tokens.get(6), 5);
-        assertNumericalToken(tokens.get(7), 10);
-        assertNumericalToken(tokens.get(8), 7);
-        assertNumericalToken(tokens.get(9), 12);
-        assertNumericalToken(tokens.get(10), 9);
-        assertNumericalToken(tokens.get(11), 14);
-        assertNumericalToken(tokens.get(12), 11);
-        assertTrue(tokens.get(13) instanceof EmptyToken);
+        assertTrue(tokens.get(0) instanceof EmptyToken);
+        assertNumericalToken(tokens.get(1), 15);
+        assertNumericalToken(tokens.get(2), 4);
+        assertNumericalToken(tokens.get(3), 1);
+        assertNumericalToken(tokens.get(4), 6);
+        assertNumericalToken(tokens.get(5), 3);
+        assertNumericalToken(tokens.get(6), 8);
+        assertNumericalToken(tokens.get(7), 5);
+        assertNumericalToken(tokens.get(8), 10);
+        assertNumericalToken(tokens.get(9), 7);
+        assertNumericalToken(tokens.get(10), 12);
+        assertNumericalToken(tokens.get(11), 9);
+        assertNumericalToken(tokens.get(12), 14);
+        assertNumericalToken(tokens.get(13), 11);
         assertNumericalToken(tokens.get(14), 13);
         assertNumericalToken(tokens.get(15), 2);
 
