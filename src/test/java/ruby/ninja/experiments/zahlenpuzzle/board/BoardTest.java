@@ -96,18 +96,34 @@ public class BoardTest {
     }
 
     @Test
-    public void testAreNotAdjacent() throws Exception {
-        assertAdjacent(new BoardSize(0, 0), new BoardSize(3, 2), false);
+    public void testAreNotAdjacentUp() throws Exception {
+        assertAdjacent(new BoardSize(2, 2), new BoardSize(2, 0), true);
+    }
+
+    @Test
+    public void testAreNotAdjacentRight() throws Exception {
+        assertAdjacent(new BoardSize(2, 2), new BoardSize(2, 4), true);
+    }
+
+    @Test
+    public void testAreNotAdjacentDown() throws Exception {
+        assertAdjacent(new BoardSize(2, 2), new BoardSize(0, 2), true);
+    }
+
+    @Test
+    public void testAreNotAdjacentLeft() throws Exception {
+        assertAdjacent(new BoardSize(2, 2), new BoardSize(4, 2), true);
+    }
+
+
+    @Test
+    public void testAreNotAdjacentDiagonally() throws Exception {
+        assertAdjacent(new BoardSize(1, 1), new BoardSize(2, 2), false);
     }
 
     @Test
     public void testAreNotAdjacentWhenSame() throws Exception {
         assertAdjacent(new BoardSize(1, 1), new BoardSize(1, 1), false);
-    }
-
-    @Test
-    public void testAreNotAdjacentDiagonally() throws Exception {
-        assertAdjacent(new BoardSize(1, 1), new BoardSize(2, 2), false);
     }
 
     private void assertAdjacent(BoardSize pos1, BoardSize pos2, boolean expected) {
