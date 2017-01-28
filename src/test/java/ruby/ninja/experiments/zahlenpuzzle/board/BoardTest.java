@@ -74,4 +74,22 @@ public class BoardTest {
         assertSame(oldToken1, newToken2);
         assertSame(oldToken2, newToken1);
     }
+
+    @Test
+    public void testAreAdjacent() throws Exception {
+        //     0  1   2   3
+        //   |-------------
+        // 0 | 0,  1,  2,  3
+        // 1 | 4,  5,  6,  7
+        // 2 | 8,  9,  10, 11
+        // 3 | 12, 13, 14, 15
+
+        assertAdjacent(new BoardSize(1, 1), new BoardSize(1, 2), true);
+        assertAdjacent(new BoardSize(1, 1), new BoardSize(2, 2), false);
+        assertAdjacent(new BoardSize(0, 0), new BoardSize(3, 2), false);
+    }
+
+    private void assertAdjacent(BoardSize pos1, BoardSize pos2, boolean expected) {
+        assertSame(expected, board.areAdjacent(pos1, pos2));
+    }
 }
