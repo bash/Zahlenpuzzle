@@ -37,4 +37,29 @@ public class Board {
     private int getIndexFromLocation(BoardSize location) {
         return location.getHeight() * size.getWidth() + location.getWidth();
     }
+
+    public boolean areAdjacent(BoardSize pos1, BoardSize pos2) {
+        //     0  1   2   3
+        //   |-------------
+        // 0 | 0,  1,  2,  3
+        // 1 | 4,  5,  6,  7
+        // 2 | 8,  9,  10, 11
+        // 3 | 12, 13, 14, 15
+
+        int width1 = pos1.getWidth();
+        int width2 = pos2.getWidth();
+
+        int height1 = pos1.getHeight();
+        int height2 = pos2.getHeight();
+
+        if (width1 == width2) {
+            return height1 == height2 + 1 || height2 == height1 + 1;
+        }
+
+        if (height1 == height2) {
+            return width1 == width2 + 1 || width2 == width1 + 1;
+        }
+
+        return false;
+    }
 }
