@@ -32,8 +32,8 @@
       <file leaf-file-name="BoardTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/ruby/ninja/experiments/zahlenpuzzle/board/BoardTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="652">
-              <caret line="114" column="38" lean-forward="false" selection-start-line="114" selection-start-column="38" selection-end-line="114" selection-end-column="38" />
+            <state relative-caret-position="742">
+              <caret line="114" column="70" lean-forward="false" selection-start-line="114" selection-start-column="70" selection-end-line="114" selection-end-column="70" />
               <folding />
             </state>
           </provider>
@@ -307,7 +307,7 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
-  <component name="RunManager" selected="JUnit.BoardTest">
+  <component name="RunManager" selected="JUnit.ruby.ninja.experiments.zahlenpuzzle in Zahlenpuzzle">
     <configuration default="false" name="All in Zahlenpuzzle" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="Zahlenpuzzle" />
@@ -761,8 +761,8 @@
     </list>
     <recent_temporary>
       <list size="3">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.BoardTest" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.ruby.ninja.experiments.zahlenpuzzle in Zahlenpuzzle" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.ruby.ninja.experiments.zahlenpuzzle in Zahlenpuzzle" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.BoardTest" />
         <item index="2" class="java.lang.String" itemvalue="JUnit.All in Zahlenpuzzle" />
       </list>
     </recent_temporary>
@@ -777,7 +777,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1485630895752</updated>
-      <workItem from="1485630898124" duration="6208000" />
+      <workItem from="1485630898124" duration="6391000" />
     </task>
     <servers />
   </component>
@@ -800,9 +800,12 @@
     <history-entry file="ruby_ninja_experiments_zahlenpuzzle_in_Zahlenpuzzle - 2017.01.28 at 21h 57m 09s.xml">
       <configuration name="ruby.ninja.experiments.zahlenpuzzle in Zahlenpuzzle" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="ruby_ninja_experiments_zahlenpuzzle_in_Zahlenpuzzle - 2017.01.28 at 22h 08m 53s.xml">
+      <configuration name="ruby.ninja.experiments.zahlenpuzzle in Zahlenpuzzle" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6208000" />
+    <option name="totallyTimeSpent" value="6391000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
@@ -939,8 +942,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/ruby/ninja/experiments/zahlenpuzzle/board/BoardTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="652">
-          <caret line="114" column="38" lean-forward="false" selection-start-line="114" selection-start-column="38" selection-end-line="114" selection-end-column="38" />
+        <state relative-caret-position="742">
+          <caret line="114" column="70" lean-forward="false" selection-start-line="114" selection-start-column="70" selection-end-line="114" selection-end-column="70" />
           <folding />
         </state>
       </provider>

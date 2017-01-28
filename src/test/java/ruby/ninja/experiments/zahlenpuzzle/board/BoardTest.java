@@ -97,22 +97,22 @@ public class BoardTest {
 
     @Test
     public void testAreNotAdjacentUp() throws Exception {
-        assertAdjacent(new BoardSize(2, 2), new BoardSize(2, 0), true);
+        assertAdjacent(new BoardSize(2, 2), new BoardSize(2, 0), false);
     }
 
     @Test
     public void testAreNotAdjacentRight() throws Exception {
-        assertAdjacent(new BoardSize(2, 2), new BoardSize(2, 4), true);
+        assertAdjacent(new BoardSize(2, 2), new BoardSize(2, 4), false);
     }
 
     @Test
     public void testAreNotAdjacentDown() throws Exception {
-        assertAdjacent(new BoardSize(2, 2), new BoardSize(0, 2), true);
+        assertAdjacent(new BoardSize(2, 2), new BoardSize(0, 2), false);
     }
 
     @Test
     public void testAreNotAdjacentLeft() throws Exception {
-        assertAdjacent(new BoardSize(2, 2), new BoardSize(4, 2), true);
+        assertAdjacent(new BoardSize(2, 2), new BoardSize(4, 2), false);
     }
 
 
