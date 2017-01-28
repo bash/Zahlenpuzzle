@@ -64,7 +64,19 @@ public class BoardSizeTest {
     }
 
     @Test
-    public void testNotEquals() {
+    public void testNotEqualsWidth() {
+        BoardSize boardSize = new BoardSize(1, 2);
+        assertFalse(boardSize.equals(new BoardSize(2, 2)));
+    }
+
+    @Test
+    public void testNotEqualsHeitht() {
+        BoardSize boardSize = new BoardSize(1, 2);
+        assertFalse(boardSize.equals(new BoardSize(1, 1)));
+    }
+
+    @Test
+    public void testNotEqualsBoth() {
         BoardSize boardSize = new BoardSize(1, 2);
         assertFalse(boardSize.equals(new BoardSize(2, 1)));
     }

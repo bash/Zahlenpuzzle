@@ -33,10 +33,6 @@ public class HardcodedInitializer implements BoardInitializer {
     }
 
     public BoardSize getBoardSize() {
-        try {
-            return new BoardSize(4, 4);
-        } catch (IllegalArgumentException e) {
-            throw new RuntimeException(e);
-        }
+        return new BoardSize(4, 4);
     }
 }
