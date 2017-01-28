@@ -35,8 +35,8 @@ public class HardcodedInitializer implements BoardInitializer {
     public BoardSize getBoardSize() {
         try {
             return new BoardSize(4, 4);
-        } catch (BoardSize.InvalidValueException e) {
-            return null;
+        } catch (IllegalArgumentException e) {
+            throw new RuntimeException(e);
         }
     }
 }

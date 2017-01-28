@@ -10,8 +10,13 @@ public class BoardSizeTest {
     private BoardSize size;
 
     @Before
-    public void setup() throws BoardSize.InvalidValueException {
-        size = new BoardSize(4, 52);
+    public void setup() {
+        try {
+            size = new BoardSize(4, 52);
+        }
+        catch (IllegalArgumentException e){
+            throw new RuntimeException(e);
+        }
     }
 
     @Test
@@ -25,54 +30,54 @@ public class BoardSizeTest {
     }
 
     @Test
-    public void testZeroWidth() throws BoardSize.InvalidValueException {
+    public void testZeroWidth() {
         BoardSize zeroBoardSize = new BoardSize(0, 0);
         assertSame(0, zeroBoardSize.getWidth());
     }
 
     @Test
-    public void testZeroHeight() throws BoardSize.InvalidValueException {
+    public void testZeroHeight() {
         BoardSize zeroBoardSize = new BoardSize(0, 0);
         assertSame(0, zeroBoardSize.getHeight());
     }
 
-    @Test(expected = BoardSize.InvalidValueException.class)
+    @Test(expected = IllegalArgumentException.class)
     public void testNegativeWidth() throws Exception {
         BoardSize negativeBoardSize = new BoardSize(-3, 3);
     }
 
-    @Test(expected = BoardSize.InvalidValueException.class)
+    @Test(expected = IllegalArgumentException.class)
     public void testNegativeHeight() throws Exception {
         BoardSize negativeBoardSize = new BoardSize(0, -3);
     }
 
     @Test
-    public void testEquals() throws BoardSize.InvalidValueException {
+    public void testEquals()  {
         BoardSize boardSize = new BoardSize(1, 2);
         assertTrue(boardSize.equals(new BoardSize(1, 2)));
     }
 
     @Test
-    public void testNotEquals() throws BoardSize.InvalidValueException {
+    public void testEqualsSame() {
+        BoardSize boardSize = new BoardSize(1, 2);
+        assertTrue(boardSize.equals(boardSize));
+    }
+
+    @Test
+    public void testNotEquals() {
         BoardSize boardSize = new BoardSize(1, 2);
         assertFalse(boardSize.equals(new BoardSize(2, 1)));
     }
 
     @Test
-    public void testNotEqualsSame() throws BoardSize.InvalidValueException {
-        BoardSize boardSize = new BoardSize(1, 2);
-        assertFalse(boardSize.equals(boardSize));
-    }
-
-    @Test
-    public void testNotEqualsNull() throws BoardSize.InvalidValueException {
+    public void testNotEqualsNull() {
         BoardSize boardSize = new BoardSize(1, 2);
         assertFalse(boardSize.equals(null));
     }
 
 
     @Test
-    public void testToString() throws BoardSize.InvalidValueException {
+    public void testToString() {
         BoardSize boardSize = new BoardSize(0, 0);
 
         assertEquals("(0, 0)", boardSize.toString());

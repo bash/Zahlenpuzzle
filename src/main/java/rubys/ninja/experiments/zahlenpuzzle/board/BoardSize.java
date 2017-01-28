@@ -4,13 +4,7 @@ public class BoardSize {
     private Integer width;
     private Integer height;
 
-    public class InvalidValueException extends Exception {
-        InvalidValueException(String message) {
-            super(message);
-        }
-    }
-
-    public BoardSize(Integer width, Integer height) throws InvalidValueException {
+    public BoardSize(Integer width, Integer height) throws IllegalArgumentException {
         if (width < 0 || height < 0)
             throw new IllegalArgumentException("Size cannot be negative");
 
