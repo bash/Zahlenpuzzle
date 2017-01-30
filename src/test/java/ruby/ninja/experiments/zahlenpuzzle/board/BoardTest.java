@@ -15,29 +15,6 @@ import static org.junit.Assert.*;
 public class BoardTest {
     private Board board;
 
-    private class MockToken implements Token {
-    }
-
-    private class MockInitializer implements BoardInitializer {
-        public List<Token> getTokens() {
-            return new ArrayList<Token>() {{
-               add(new MockToken());
-               add(new MockToken());
-               add(new MockToken());
-               add(new MockToken());
-            }};
-        }
-
-        public BoardSize getBoardSize() {
-            try {
-                return new BoardSize(2, 2);
-            } catch (Exception ignored) {
-                fail();
-                return null;
-            }
-        }
-    }
-
     @Before
     public void setup() throws Exception {
         board = new Board(new MockInitializer());
@@ -115,7 +92,6 @@ public class BoardTest {
         assertAdjacent(new BoardSize(2, 2), new BoardSize(4, 2), false);
     }
 
-
     @Test
     public void testAreNotAdjacentDiagonally() throws Exception {
         assertAdjacent(new BoardSize(1, 1), new BoardSize(2, 2), false);
@@ -128,5 +104,28 @@ public class BoardTest {
 
     private void assertAdjacent(BoardSize pos1, BoardSize pos2, boolean expected) {
         assertSame(expected, board.areAdjacent(pos1, pos2));
+    }
+
+    private class MockToken implements Token {
+    }
+
+    private class MockInitializer implements BoardInitializer {
+        public List<Token> getTokens() {
+            return new ArrayList<Token>() {{
+                add(new MockToken());
+                add(new MockToken());
+                add(new MockToken());
+                add(new MockToken());
+            }};
+        }
+
+        public BoardSize getBoardSize() {
+            try {
+                return new BoardSize(2, 2);
+            } catch (Exception ignored) {
+                fail();
+                return null;
+            }
+        }
     }
 }

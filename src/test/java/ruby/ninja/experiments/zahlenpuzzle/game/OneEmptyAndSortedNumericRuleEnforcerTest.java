@@ -26,7 +26,7 @@ public class OneEmptyAndSortedNumericRuleEnforcerTest {
 
     @Test
     public void testIsFinished() {
-        Board finishedBoard = new Board(new SortedInitializer(new BoardSize(4,4)));
+        Board finishedBoard = new Board(new SortedInitializer(new BoardSize(4, 4)));
         assertTrue(ruleEnforcer.isFinished(finishedBoard));
     }
 

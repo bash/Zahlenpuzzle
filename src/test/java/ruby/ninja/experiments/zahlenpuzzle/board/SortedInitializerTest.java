@@ -16,9 +16,10 @@ import static org.junit.Assert.assertTrue;
 
 public class SortedInitializerTest {
     BoardInitializer init;
+
     @Before
     public void setup() {
-        init = new SortedInitializer(new BoardSize(4,4));
+        init = new SortedInitializer(new BoardSize(4, 4));
     }
 
     @Test
@@ -37,6 +38,6 @@ public class SortedInitializerTest {
 
     @Test
     public void TestSize() {
-        assertTrue(init.getBoardSize().equals(new BoardSize(4,4)));
+        assertTrue(init.getBoardSize().equals(new BoardSize(4, 4)));
     }
 }

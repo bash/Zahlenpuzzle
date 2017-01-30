@@ -13,8 +13,7 @@ public class BoardSizeTest {
     public void setup() {
         try {
             size = new BoardSize(4, 52);
-        }
-        catch (IllegalArgumentException e){
+        } catch (IllegalArgumentException e) {
             throw new RuntimeException(e);
         }
     }
@@ -52,7 +51,7 @@ public class BoardSizeTest {
     }
 
     @Test
-    public void testEquals()  {
+    public void testEquals() {
         BoardSize boardSize = new BoardSize(1, 2);
         assertTrue(boardSize.equals(new BoardSize(1, 2)));
     }
