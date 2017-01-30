@@ -8,6 +8,7 @@ import rubys.ninja.experiments.zahlenpuzzle.board.BoardSize;
 import rubys.ninja.experiments.zahlenpuzzle.token.Token;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -100,6 +101,21 @@ public class BoardTest {
     @Test
     public void testAreNotAdjacentWhenSame() throws Exception {
         assertAdjacent(new BoardSize(1, 1), new BoardSize(1, 1), false);
+    }
+
+    @Test
+    public void testIterator() {
+        BoardSize boardSize = board.getSize();
+        Iterator<Token> iterator = board.iterator();
+
+        for (int i = 0; i < boardSize.getHeight(); i++) {
+            for (int j = 0; j < boardSize.getWidth(); j++) {
+                Token expected = board.getTokenAt(new BoardSize(j, i));
+                Token actual = iterator.next();
+
+                assertSame(expected, actual);
+            }
+        }
     }
 
     private void assertAdjacent(BoardSize pos1, BoardSize pos2, boolean expected) {
