@@ -10,6 +10,9 @@ coverage:
   - "**/Game.java"
   - "**/SinglePlayerGame.java"
   - "**/InputRequester.java"
+  - "*/Game.java"
+  - "*/SinglePlayerGame.java"
+  - "*/InputRequester.java"
 
 comment:
     layout: "header, sunburst"
