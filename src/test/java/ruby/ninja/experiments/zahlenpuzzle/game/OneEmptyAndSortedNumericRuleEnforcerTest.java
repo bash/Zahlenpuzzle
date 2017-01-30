@@ -2,12 +2,15 @@ package ruby.ninja.experiments.zahlenpuzzle.game;
 
 import org.junit.Before;
 import org.junit.Test;
-import rubys.ninja.experiments.zahlenpuzzle.board.Board;
-import rubys.ninja.experiments.zahlenpuzzle.board.BoardSize;
-import rubys.ninja.experiments.zahlenpuzzle.board.HardcodedInitializer;
-import rubys.ninja.experiments.zahlenpuzzle.board.SortedInitializer;
+import rubys.ninja.experiments.zahlenpuzzle.board.*;
 import rubys.ninja.experiments.zahlenpuzzle.game.OneEmptyAndSortedNumericRuleEnforcer;
 import rubys.ninja.experiments.zahlenpuzzle.game.RuleEnforcer;
+import rubys.ninja.experiments.zahlenpuzzle.token.EmptyToken;
+import rubys.ninja.experiments.zahlenpuzzle.token.NumericalToken;
+import rubys.ninja.experiments.zahlenpuzzle.token.Token;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -33,6 +36,29 @@ public class OneEmptyAndSortedNumericRuleEnforcerTest {
     @Test
     public void testIsUnfinished() {
         Board finishedBoard = new Board(new HardcodedInitializer());
+        assertFalse(ruleEnforcer.isFinished(finishedBoard));
+    }
+
+    @Test
+    public void testNonMatchingTokens() {
+        class MockInitializer implements BoardInitializer {
+            @Override
+            public List<Token> getTokens() {
+                return new ArrayList<Token>() {{
+                   add(new NumericalToken(1));
+                   add(new NumericalToken(3));
+                   add(new NumericalToken(2));
+                   add(new EmptyToken());
+                }};
+            }
+
+            @Override
+            public BoardSize getBoardSize() {
+                return new BoardSize(2, 2);
+            }
+        }
+
+        Board finishedBoard = new Board(new MockInitializer());
         assertFalse(ruleEnforcer.isFinished(finishedBoard));
     }
 
