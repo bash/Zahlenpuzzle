@@ -19,11 +19,17 @@ public class ConsoleView {
         while (true) {
             Game.UpdateResult result = directionController.update();
 
-            if (result == Game.UpdateResult.GameFinished) {
-                return;
+            switch (result) {
+                case SuccessfulSwap:
+                    System.out.println("Nice Moves my friend :)");
+                    break;
+                case RequestDenied:
+                    System.out.println("Invalid move");
+                    break;
+                case GameFinished:
+                    System.out.println("Congrats, you won!");
+                    return;
             }
-
-            printBoard(board);
         }
     }
 
@@ -81,7 +87,7 @@ public class ConsoleView {
     }
 
 
-    public DirectionRequester.Direction getDirection() {
+    private DirectionRequester.Direction getDirection() {
         Scanner reader = new Scanner(System.in);  // Reading from System.in
         System.out.println("Pick a direction [u/d/l/r]: ");
 
