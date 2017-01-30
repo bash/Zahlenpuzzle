@@ -38,16 +38,28 @@ public class DirectionController {
         BoardSize otherPos = null;
         switch (direction) {
             case up:
-                otherPos = new BoardSize(emptyPos.getWidth(), emptyPos.getHeight() - 1);
+                if (emptyPos.getHeight() == 0)
+                    otherPos = emptyPos;
+                else
+                    otherPos = new BoardSize(emptyPos.getWidth(), emptyPos.getHeight() - 1);
                 break;
             case right:
-                otherPos = new BoardSize(emptyPos.getWidth() + 1, emptyPos.getHeight());
+                if (emptyPos.getWidth() == boardSize.getWidth() - 1)
+                    otherPos = emptyPos;
+                else
+                    otherPos = new BoardSize(emptyPos.getWidth() + 1, emptyPos.getHeight());
                 break;
             case down:
-                otherPos = new BoardSize(emptyPos.getWidth(), emptyPos.getHeight() + 1);
+                if (emptyPos.getHeight() == boardSize.getHeight() - 1)
+                    otherPos = emptyPos;
+                else
+                    otherPos = new BoardSize(emptyPos.getWidth(), emptyPos.getHeight() + 1);
                 break;
             case left:
-                otherPos = new BoardSize(emptyPos.getWidth() - 1, emptyPos.getHeight());
+                if (emptyPos.getWidth() == 0)
+                    otherPos = emptyPos;
+                else
+                    otherPos = new BoardSize(emptyPos.getWidth() - 1, emptyPos.getHeight());
                 break;
         }
 
