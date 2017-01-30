@@ -30,6 +30,7 @@ public class ConsoleView {
                     System.out.println("Congrats, you won!");
                     return;
             }
+            printBoard(board);
         }
     }
 
