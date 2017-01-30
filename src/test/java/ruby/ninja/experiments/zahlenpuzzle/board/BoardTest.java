@@ -31,6 +31,11 @@ public class BoardTest {
         board.getTokenAt(new BoardSize(1, 0));
     }
 
+    @Test
+    public void testGetTokenAtIndex() throws Exception {
+        board.getTokenAt(0);
+    }
+
     @Test(expected = Exception.class)
     public void TestBounds() throws Exception {
         Token token = board.getTokenAt(new BoardSize(5, 6));
