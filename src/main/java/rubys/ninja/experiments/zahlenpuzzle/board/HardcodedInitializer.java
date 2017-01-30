@@ -7,9 +7,6 @@ import rubys.ninja.experiments.zahlenpuzzle.token.Token;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @author Ruben Schmidmeister (bash)
- */
 public class HardcodedInitializer implements BoardInitializer {
     public List<Token> getTokens() {
         return new ArrayList<Token>() {{

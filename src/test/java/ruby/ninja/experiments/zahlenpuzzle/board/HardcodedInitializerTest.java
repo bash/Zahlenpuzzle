@@ -11,9 +11,6 @@ import java.util.List;
 
 import static org.junit.Assert.*;
 
-/**
- * @author Ruben Schmidmeister (bash)
- */
 public class HardcodedInitializerTest {
     @Test
     public void testInitializer() throws Exception {
