@@ -5,7 +5,7 @@ coverage:
         target: 80%
         threshold: null
         base:
-
+        
   ignore:
   - "**/Game.java"
   - "**/SinglePlayerGame.java"
