@@ -2,16 +2,32 @@ package rubys.ninja.experiments.zahlenpuzzle.view;
 
 import rubys.ninja.experiments.zahlenpuzzle.board.Board;
 import rubys.ninja.experiments.zahlenpuzzle.board.BoardSize;
+import rubys.ninja.experiments.zahlenpuzzle.game.Game;
 import rubys.ninja.experiments.zahlenpuzzle.token.Token;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class ConsoleView {
     public void run() {
         DirectionController directionController = new DirectionController(this::getDirection);
         Board board = directionController.getBoard();
 
+        printBoard(board);
+
+        while (true) {
+            Game.UpdateResult result = directionController.update();
+
+            if (result == Game.UpdateResult.GameFinished) {
+                return;
+            }
+
+            printBoard(board);
+        }
+    }
+
+    private void printBoard(Board board) {
         System.out.println(renderBoard(board));
     }
 
@@ -66,6 +82,22 @@ public class ConsoleView {
 
 
     public DirectionRequester.Direction getDirection() {
-        return null;
+        Scanner reader = new Scanner(System.in);  // Reading from System.in
+        System.out.println("Pick a direction [u/d/l/r]: ");
+
+        String direction = reader.nextLine();
+
+        switch (direction) {
+            case "u":
+                return DirectionRequester.Direction.up;
+            case "d":
+                return DirectionRequester.Direction.down;
+            case "l":
+                return DirectionRequester.Direction.left;
+            case "r":
+                return DirectionRequester.Direction.right;
+        }
+
+        return getDirection();
     }
 }
