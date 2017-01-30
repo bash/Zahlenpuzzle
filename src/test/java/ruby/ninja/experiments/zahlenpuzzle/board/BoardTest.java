@@ -8,35 +8,13 @@ import rubys.ninja.experiments.zahlenpuzzle.board.BoardSize;
 import rubys.ninja.experiments.zahlenpuzzle.token.Token;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import static org.junit.Assert.*;
 
 public class BoardTest {
     private Board board;
-
-    private class MockToken implements Token {
-    }
-
-    private class MockInitializer implements BoardInitializer {
-        public List<Token> getTokens() {
-            return new ArrayList<Token>() {{
-               add(new MockToken());
-               add(new MockToken());
-               add(new MockToken());
-               add(new MockToken());
-            }};
-        }
-
-        public BoardSize getBoardSize() {
-            try {
-                return new BoardSize(2, 2);
-            } catch (Exception ignored) {
-                fail();
-                return null;
-            }
-        }
-    }
 
     @Before
     public void setup() throws Exception {
@@ -51,6 +29,11 @@ public class BoardTest {
     @Test
     public void TestGetToken() throws Exception {
         board.getTokenAt(new BoardSize(1, 0));
+    }
+
+    @Test
+    public void testGetTokenAtIndex() throws Exception {
+        board.getTokenAt(0);
     }
 
     @Test(expected = Exception.class)
@@ -115,7 +98,6 @@ public class BoardTest {
         assertAdjacent(new BoardSize(2, 2), new BoardSize(4, 2), false);
     }
 
-
     @Test
     public void testAreNotAdjacentDiagonally() throws Exception {
         assertAdjacent(new BoardSize(1, 1), new BoardSize(2, 2), false);
@@ -126,7 +108,45 @@ public class BoardTest {
         assertAdjacent(new BoardSize(1, 1), new BoardSize(1, 1), false);
     }
 
+    @Test
+    public void testIterator() {
+        BoardSize boardSize = board.getSize();
+        Iterator<Token> iterator = board.iterator();
+
+        for (int i = 0; i < boardSize.getHeight(); i++) {
+            for (int j = 0; j < boardSize.getWidth(); j++) {
+                Token expected = board.getTokenAt(new BoardSize(j, i));
+                Token actual = iterator.next();
+
+                assertSame(expected, actual);
+            }
+        }
+    }
+
     private void assertAdjacent(BoardSize pos1, BoardSize pos2, boolean expected) {
         assertSame(expected, board.areAdjacent(pos1, pos2));
+    }
+
+    private class MockToken implements Token {
+    }
+
+    private class MockInitializer implements BoardInitializer {
+        public List<Token> getTokens() {
+            return new ArrayList<Token>() {{
+                add(new MockToken());
+                add(new MockToken());
+                add(new MockToken());
+                add(new MockToken());
+            }};
+        }
+
+        public BoardSize getBoardSize() {
+            try {
+                return new BoardSize(2, 2);
+            } catch (Exception ignored) {
+                fail();
+                return null;
+            }
+        }
     }
 }

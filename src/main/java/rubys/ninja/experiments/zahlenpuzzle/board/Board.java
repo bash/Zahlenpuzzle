@@ -2,9 +2,10 @@ package rubys.ninja.experiments.zahlenpuzzle.board;
 
 import rubys.ninja.experiments.zahlenpuzzle.token.Token;
 
+import java.util.Iterator;
 import java.util.List;
 
-public class Board {
+public class Board implements Iterable<Token> {
     private BoardSize size;
     private List<Token> tokens;
 
@@ -17,6 +18,10 @@ public class Board {
         int index = getIndexFromLocation(location);
 
         return tokens.get(index);
+    }
+
+    public Token getTokenAt(Integer location) throws IndexOutOfBoundsException {
+        return tokens.get(location);
     }
 
     public BoardSize getSize() {
@@ -61,5 +66,10 @@ public class Board {
         }
 
         return false;
+    }
+
+    @Override
+    public Iterator<Token> iterator() {
+        return tokens.iterator();
     }
 }

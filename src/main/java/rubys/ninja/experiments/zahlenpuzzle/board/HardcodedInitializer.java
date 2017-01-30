@@ -13,22 +13,22 @@ import java.util.List;
 public class HardcodedInitializer implements BoardInitializer {
     public List<Token> getTokens() {
         return new ArrayList<Token>() {{
-           add(new NumericalToken(15));
-           add(new NumericalToken(4));
-           add(new NumericalToken(1));
-           add(new NumericalToken(6));
-           add(new NumericalToken(3));
-           add(new NumericalToken(8));
-           add(new NumericalToken(5));
-           add(new NumericalToken(10));
-           add(new NumericalToken(7));
-           add(new NumericalToken(12));
-           add(new NumericalToken(9));
-           add(new NumericalToken(14));
-           add(new NumericalToken(11));
-           add(new EmptyToken());
-           add(new NumericalToken(13));
-           add(new NumericalToken(2));
+            add(new EmptyToken());
+            add(new NumericalToken(15));
+            add(new NumericalToken(4));
+            add(new NumericalToken(1));
+            add(new NumericalToken(6));
+            add(new NumericalToken(3));
+            add(new NumericalToken(8));
+            add(new NumericalToken(5));
+            add(new NumericalToken(10));
+            add(new NumericalToken(7));
+            add(new NumericalToken(12));
+            add(new NumericalToken(9));
+            add(new NumericalToken(14));
+            add(new NumericalToken(11));
+            add(new NumericalToken(13));
+            add(new NumericalToken(2));
         }};
     }
 
