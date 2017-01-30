@@ -17,11 +17,12 @@ public class SortedInitializer implements BoardInitializer {
     }
 
     public List<Token> getTokens() {
-        List<Token> tokens = new ArrayList<Token>();
-        for (int i = 0; i < size.getHeight() * size.getWidth() - 1; i++) {
+        List<Token> tokens = new ArrayList<>();
+
+        for (int i = 1; i < size.getHeight() * size.getWidth(); i++)
             tokens.add(new NumericalToken(i));
-        }
         tokens.add(new EmptyToken());
+
         return tokens;
     }
 

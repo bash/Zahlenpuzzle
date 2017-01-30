@@ -20,6 +20,10 @@ public class Board implements Iterable<Token> {
         return tokens.get(index);
     }
 
+    public Token getTokenAt(Integer location) throws IndexOutOfBoundsException {
+        return tokens.get(location);
+    }
+
     public BoardSize getSize() {
         return size;
     }

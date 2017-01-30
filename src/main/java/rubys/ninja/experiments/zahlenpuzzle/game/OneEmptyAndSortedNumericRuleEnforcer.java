@@ -3,6 +3,7 @@ package rubys.ninja.experiments.zahlenpuzzle.game;
 import rubys.ninja.experiments.zahlenpuzzle.board.Board;
 import rubys.ninja.experiments.zahlenpuzzle.board.BoardSize;
 import rubys.ninja.experiments.zahlenpuzzle.token.EmptyToken;
+import rubys.ninja.experiments.zahlenpuzzle.token.NumericalToken;
 import rubys.ninja.experiments.zahlenpuzzle.token.Token;
 
 
@@ -27,7 +28,27 @@ public class OneEmptyAndSortedNumericRuleEnforcer implements RuleEnforcer {
         return areAdjacent && oneIsEmpty;
     }
 
-    public boolean isFinished(Board finishedBoard) {
-        return false;
+    public boolean isFinished(Board board) {
+        BoardSize boardSize = board.getSize();
+        int maxIndex = boardSize.getHeight() * boardSize.getWidth() - 1;
+
+        for (int i = 0; i < maxIndex; i++) {
+            Token token = board.getTokenAt(i);
+
+            if (!(token instanceof NumericalToken)) {
+                return false;
+            }
+
+            NumericalToken numericalToken = (NumericalToken) token;
+            int value = numericalToken.getValue();
+            int expected = i + 1;
+
+            if (value != expected) {
+                return false;
+            }
+        }
+
+
+        return board.getTokenAt(maxIndex) instanceof EmptyToken;
     }
 }
