@@ -31,6 +31,12 @@ public class OneEmptyAndSortedNumericRuleEnforcerTest {
     }
 
     @Test
+    public void testIsUnfinished() {
+        Board finishedBoard = new Board(new HardcodedInitializer());
+        assertFalse(ruleEnforcer.isFinished(finishedBoard));
+    }
+
+    @Test
     public void testIsAllowedToSwapAdjacentEmpty() {
         BoardSize pos = new BoardSize(1, 0);
         assertTrue(ruleEnforcer.isAllowedToSwap(board, emptyPos, pos));
