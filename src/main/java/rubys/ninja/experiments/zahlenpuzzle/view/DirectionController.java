@@ -14,7 +14,7 @@ public class DirectionController {
         game = new SinglePlayerGame(new HardcodedInitializer(), () -> convertDirectionToSwapRequest(input.getDirection()), new OneEmptyAndSortedNumericRuleEnforcer());
     }
 
-    public InputRequester.SwapRequest convertDirectionToSwapRequest(DirectionRequester.Direction direction) {
+    private InputRequester.SwapRequest convertDirectionToSwapRequest(DirectionRequester.Direction direction) {
         BoardSize emptyPos = null;
         Board board = game.getBoard();
         BoardSize boardSize = board.getSize();
