@@ -21,22 +21,23 @@ public class ConsoleView {
         BoardSize size = board.getSize();
         List<String> tokens = getTokens(board);
         int cellWidth = getMaxWidth(tokens);
-        int lineWidth = cellWidth * size.getWidth();
+        int lineWidth = (cellWidth + 3) * size.getWidth();
 
-        String divider = new String(new char[lineWidth]).replace("\0", "-");
+        String divider = new String(new char[lineWidth]).replace("\0", "-") + "\n";
 
         builder.append(divider);
 
-        for (int i = 1; i < size.getHeight(); i++) {
-            builder.append("|");
+        for (int i = 0; i < size.getHeight(); i++) {
+            builder.append("| ");
 
-            for (int j = 1; j < size.getWidth(); j++) {
+            for (int j = 0; j < size.getWidth(); j++) {
                 Token token = board.getTokenAt(new BoardSize(j, i));
 
-                builder.append(token);
-                builder.append("|");
+                builder.append(String.format("%-" + cellWidth + "s", token));
+                builder.append(" | ");
             }
 
+            builder.append("\n");
             builder.append(divider);
         }
 
