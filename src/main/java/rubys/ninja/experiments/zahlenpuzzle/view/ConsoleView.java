@@ -7,9 +7,9 @@ import rubys.ninja.experiments.zahlenpuzzle.token.Token;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ConsoleView implements DirectionRequester {
+public class ConsoleView {
     public void run() {
-        DirectionController directionController = new DirectionController(this);
+        DirectionController directionController = new DirectionController(() -> getDirection());
         Board board = directionController.getBoard();
 
         System.out.println(renderBoard(board));
@@ -64,8 +64,7 @@ public class ConsoleView implements DirectionRequester {
     }
 
 
-    @Override
-    public Direction getDirection() {
+    public DirectionRequester.Direction getDirection() {
         return null;
     }
 }
