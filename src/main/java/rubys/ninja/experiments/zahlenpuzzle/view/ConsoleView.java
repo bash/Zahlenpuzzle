@@ -15,10 +15,14 @@ public class ConsoleView {
         DirectionController directionController = new DirectionController(this::getDirection);
         Board board = directionController.getBoard();
 
+        clearScreen();
+        System.out.println("Hi there, nice to meet you :-)");
         printBoard(board);
 
         while (true) {
             Game.UpdateResult result = directionController.update();
+
+            clearScreen();
 
             switch (result) {
                 case SuccessfulSwap:
@@ -31,8 +35,14 @@ public class ConsoleView {
                     System.out.println("Congrats, you won!");
                     return;
             }
+
             printBoard(board);
         }
+    }
+
+    private void clearScreen() {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
     }
 
     private void printSomethingNice() {
@@ -72,8 +82,6 @@ public class ConsoleView {
     }
 
     private void printBoard(Board board) {
-        System.out.print("\033[H\033[2J");
-        System.out.flush();
         System.out.println(renderBoard(board));
     }
 
