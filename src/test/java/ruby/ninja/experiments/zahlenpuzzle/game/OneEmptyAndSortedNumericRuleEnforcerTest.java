@@ -13,9 +13,9 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class OneEmptyAndSortedNumericRuleEnforcerTest {
-    Board board;
-    RuleEnforcer ruleEnforcer;
-    BoardSize emptyPos;
+    private Board board;
+    private RuleEnforcer ruleEnforcer;
+    private BoardSize emptyPos;
 
     @Before
     public void setup() throws Exception {
