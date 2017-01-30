@@ -9,4 +9,4 @@ comment:
     layout: "header, sunburst"
 
 ignore:
-- "src/main/java/rubys/ninja/experiments/zahlenpuzzle/game/Game.java"
+- "src/main/java/rubys/ninja/experiments/zahlenpuzzle/game/SinglePlayerGame.java"
