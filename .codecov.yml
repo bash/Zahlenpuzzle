@@ -4,10 +4,16 @@ coverage:
       default:
         target: 80%
         threshold: null
-        base: 
-    
-    ignore:
-    - "src/main/java/rubys/ninja/experiments/zahlenpuzzle/game/SinglePlayerGame.java"
+        base:
+
+  ignore:
+  - "**/Game.java"
+  - "**/SinglePlayerGame.java"
+  - "**/InputRequester.java"
+  - "*/Game.java"
+  - "*/SinglePlayerGame.java"
+  - "*/InputRequester.java"
+  - "src/main/java/rubys/ninja/experiments/zahlenpuzzle/game/SinglePlayerGame.java"
 
 comment:
     layout: "header, sunburst"
