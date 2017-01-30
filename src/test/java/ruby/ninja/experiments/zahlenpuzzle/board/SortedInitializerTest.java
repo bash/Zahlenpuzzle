@@ -26,7 +26,7 @@ public class SortedInitializerTest {
     public void TestTokens() {
         List<Token> tokens = init.getTokens();
         for (int i = 0; i < tokens.size() - 1; i++) {
-            assertNumericalToken(tokens.get(i), i);
+            assertNumericalToken(tokens.get(i), i + 1);
         }
         assertTrue(tokens.get(tokens.size() - 1) instanceof EmptyToken);
     }
