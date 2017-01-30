@@ -7,6 +7,7 @@ import rubys.ninja.experiments.zahlenpuzzle.token.Token;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 
 public class ConsoleView {
@@ -21,7 +22,7 @@ public class ConsoleView {
 
             switch (result) {
                 case SuccessfulSwap:
-                    System.out.println("Nice Moves my friend :)");
+                    printSomethingNice();
                     break;
                 case RequestDenied:
                     System.out.println("Invalid move");
@@ -31,6 +32,42 @@ public class ConsoleView {
                     return;
             }
             printBoard(board);
+        }
+    }
+
+    private void printSomethingNice() {
+        Random random = new Random();
+        switch (random.nextInt(10)) {
+            case 0:
+                System.out.println("Nice moves my friend :)");
+                break;
+            case 1:
+                System.out.println("Great Strategy!");
+                break;
+            case 2:
+                System.out.println("Good movement, if I do say so myself");
+                break;
+            case 3:
+                System.out.println("Good Job!");
+                break;
+            case 4:
+                System.out.println("Excellent choice, good sir");
+                break;
+            case 5:
+                System.out.println("Swaggy moves, dude!");
+                break;
+            case 6:
+                System.out.println("Cool shizzle, my nizzle");
+                break;
+            case 7:
+                System.out.println("omg :o");
+                break;
+            case 8:
+                System.out.println("You can do it! :>");
+                break;
+            case 9:
+                System.out.println("Meeeemes");
+                break;
         }
     }
 
