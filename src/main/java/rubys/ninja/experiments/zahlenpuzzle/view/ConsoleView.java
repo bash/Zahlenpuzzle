@@ -9,7 +9,7 @@ import java.util.List;
 
 public class ConsoleView {
     public void run() {
-        DirectionController directionController = new DirectionController(() -> getDirection());
+        DirectionController directionController = new DirectionController(this::getDirection);
         Board board = directionController.getBoard();
 
         System.out.println(renderBoard(board));
