@@ -7,7 +7,9 @@ coverage:
         base:
 
   ignore:
-  - "src/main/java/rubys/ninja/experiments/zahlenpuzzle/game/SinglePlayerGame.java"
+  - "**/Game.java"
+  - "**/SinglePlayerGame.java"
+  - "**/InputRequester.java"
 
 comment:
     layout: "header, sunburst"
