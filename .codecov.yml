@@ -8,3 +8,5 @@ coverage:
 comment:
     layout: "header, sunburst"
 
+ignore:
+- "src/main/java/rubys/ninja/experiments/zah  lenpuzzle/game/Game.java"
