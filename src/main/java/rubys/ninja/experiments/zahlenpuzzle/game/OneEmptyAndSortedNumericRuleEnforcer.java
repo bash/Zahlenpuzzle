@@ -22,7 +22,7 @@ public class OneEmptyAndSortedNumericRuleEnforcer implements RuleEnforcer {
         boolean token1IsEmpty = token1 instanceof EmptyToken;
         boolean token2IsEmpty = token2 instanceof EmptyToken;
 
-        boolean areAdjacent = board.areAdjacent(pos1, pos2);
+        boolean areAdjacent = board.areInLine(pos1, pos2);
         boolean oneIsEmpty = token1IsEmpty != token2IsEmpty;
 
         return areAdjacent && oneIsEmpty;
