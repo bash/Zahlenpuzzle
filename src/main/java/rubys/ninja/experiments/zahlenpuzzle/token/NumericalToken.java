@@ -10,4 +10,8 @@ public class NumericalToken implements Token {
     public Integer getValue() {
         return value;
     }
+
+    public String toString() {
+        return value.toString();
+    }
 }
