@@ -42,13 +42,7 @@ public class ConsoleView {
     }
 
     private void clearScreen() {
-        System.out.print("\033[H\033[2J");
-        System.out.flush();
-        try {
-            Runtime.getRuntime().exec("cls");
-        } catch (IOException _) {
-            
-        }
+        for (int i = 0; i < 100; ++i) System.out.println();
     }
 
     private void printSomethingNice() {
