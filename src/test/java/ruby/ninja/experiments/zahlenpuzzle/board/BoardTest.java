@@ -62,18 +62,22 @@ public class BoardTest {
     @Test
     public void TestMoveInLine() throws Exception {
         Board sorted = new Board(new SortedInitializer(new BoardSize(3, 3)));
-        BoardSize pos1 = new BoardSize(0, 0);
-        BoardSize pos2 = new BoardSize(0, 1);
+        BoardSize pos1 = new BoardSize(2, 2);
+        BoardSize pos2 = new BoardSize(1, 2);
+        BoardSize pos3 = new BoardSize(0, 2);
 
-        Token oldToken1 = board.getTokenAt(pos1);
-        Token oldToken2 = board.getTokenAt(pos2);
+        Token oldToken1 = sorted.getTokenAt(pos1);
+        Token oldToken2 = sorted.getTokenAt(pos2);
+        Token oldToken3 = sorted.getTokenAt(pos3);
 
-        board.swapTokens(pos1, pos2);
+        sorted.moveTokensInLine(pos1, pos3);
 
-        Token newToken1 = board.getTokenAt(pos1);
-        Token newToken2 = board.getTokenAt(pos2);
+        Token newToken1 = sorted.getTokenAt(pos1);
+        Token newToken2 = sorted.getTokenAt(pos2);
+        Token newToken3 = sorted.getTokenAt(pos3);
 
-        assertSame(oldToken1, newToken2);
+        assertSame(oldToken1, newToken3);
+        assertSame(oldToken3, newToken2);
         assertSame(oldToken2, newToken1);
     }
 

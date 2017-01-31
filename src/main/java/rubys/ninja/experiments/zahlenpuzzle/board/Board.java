@@ -58,7 +58,7 @@ public class Board {
             int step = start < end ? 1 : -1;
 
             for (int i = start; i < end; i+=step){
-                swapTokens(new BoardSize(height, i), new BoardSize(height, i+step));
+                swapTokens(new BoardSize(i, height), new BoardSize(i+step, height));
             }
         }
     }
