@@ -5,6 +5,7 @@ import rubys.ninja.experiments.zahlenpuzzle.board.BoardSize;
 import rubys.ninja.experiments.zahlenpuzzle.game.Game;
 import rubys.ninja.experiments.zahlenpuzzle.token.Token;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -43,6 +44,11 @@ public class ConsoleView {
     private void clearScreen() {
         System.out.print("\033[H\033[2J");
         System.out.flush();
+        try {
+            Runtime.getRuntime().exec("cls");
+        } catch (IOException _) {
+            
+        }
     }
 
     private void printSomethingNice() {
