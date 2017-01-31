@@ -5,6 +5,7 @@ import org.junit.Test;
 import rubys.ninja.experiments.zahlenpuzzle.board.Board;
 import rubys.ninja.experiments.zahlenpuzzle.board.BoardInitializer;
 import rubys.ninja.experiments.zahlenpuzzle.board.BoardSize;
+import rubys.ninja.experiments.zahlenpuzzle.board.SortedInitializer;
 import rubys.ninja.experiments.zahlenpuzzle.token.Token;
 
 import java.util.ArrayList;
@@ -43,6 +44,24 @@ public class BoardTest {
 
     @Test
     public void TestSwapWithPos() throws Exception {
+        BoardSize pos1 = new BoardSize(0, 0);
+        BoardSize pos2 = new BoardSize(0, 1);
+
+        Token oldToken1 = board.getTokenAt(pos1);
+        Token oldToken2 = board.getTokenAt(pos2);
+
+        board.swapTokens(pos1, pos2);
+
+        Token newToken1 = board.getTokenAt(pos1);
+        Token newToken2 = board.getTokenAt(pos2);
+
+        assertSame(oldToken1, newToken2);
+        assertSame(oldToken2, newToken1);
+    }
+
+    @Test
+    public void TestMoveInLine() throws Exception {
+        Board sorted = new Board(new SortedInitializer(new BoardSize(3, 3)));
         BoardSize pos1 = new BoardSize(0, 0);
         BoardSize pos2 = new BoardSize(0, 1);
 

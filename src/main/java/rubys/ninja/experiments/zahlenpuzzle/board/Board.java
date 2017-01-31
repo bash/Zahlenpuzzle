@@ -1,8 +1,10 @@
 package rubys.ninja.experiments.zahlenpuzzle.board;
 
+import rubys.ninja.experiments.zahlenpuzzle.token.EmptyToken;
 import rubys.ninja.experiments.zahlenpuzzle.token.Token;
 
 import java.util.List;
+import java.util.Objects;
 
 public class Board {
     private BoardSize size;
@@ -38,6 +40,29 @@ public class Board {
         tokens.set(index2, token1);
     }
 
+    public void moveTokensInLine(BoardSize from, BoardSize to) {
+        if (Objects.equals(from.getWidth(), to.getWidth())) {
+            int width = from.getWidth();
+            int start = from.getHeight();
+            int end = to.getHeight();
+            int step = start < end ? 1 : -1;
+
+            for (int i = start; i < end; i+=step){
+                swapTokens(new BoardSize(width, i), new BoardSize(width, i+step));
+            }
+        }
+        if (Objects.equals(from.getHeight(), to.getHeight())) {
+            int height = from.getHeight();
+            int start = from.getWidth();
+            int end = to.getWidth();
+            int step = start < end ? 1 : -1;
+
+            for (int i = start; i < end; i+=step){
+                swapTokens(new BoardSize(height, i), new BoardSize(height, i+step));
+            }
+        }
+    }
+
     private int getIndexFromLocation(BoardSize location) {
         return location.getHeight() * size.getWidth() + location.getWidth();
     }
@@ -65,6 +90,19 @@ public class Board {
         }
 
         return false;
+    }
+
+    public boolean areInLine(BoardSize pos1, BoardSize pos2) {
+        int width1 = pos1.getWidth();
+        int width2 = pos2.getWidth();
+
+        int height1 = pos1.getHeight();
+        int height2 = pos2.getHeight();
+
+        boolean sameWidth = width1 == width2;
+        boolean sameHeight = height1 == height2;
+
+        return sameWidth ^ sameHeight;
     }
 
     public Iterable<Token> tokens() {
