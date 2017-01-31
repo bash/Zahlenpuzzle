@@ -3,11 +3,10 @@ package rubys.ninja.experiments.zahlenpuzzle.board;
 import rubys.ninja.experiments.zahlenpuzzle.token.EmptyToken;
 import rubys.ninja.experiments.zahlenpuzzle.token.Token;
 
-import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 
-public class Board implements Iterable<Token> {
+public class Board {
     private BoardSize size;
     private List<Token> tokens;
 
@@ -106,8 +105,7 @@ public class Board implements Iterable<Token> {
         return sameWidth ^ sameHeight;
     }
 
-    @Override
-    public Iterator<Token> iterator() {
-        return tokens.iterator();
+    public Iterable<Token> tokens() {
+        return () -> tokens.iterator();
     }
 }

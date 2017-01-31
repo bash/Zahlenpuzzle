@@ -130,7 +130,7 @@ public class BoardTest {
     @Test
     public void testIterator() {
         BoardSize boardSize = board.getSize();
-        Iterator<Token> iterator = board.iterator();
+        Iterator<Token> iterator = board.tokens().iterator();
 
         for (int i = 0; i < boardSize.getHeight(); i++) {
             for (int j = 0; j < boardSize.getWidth(); j++) {

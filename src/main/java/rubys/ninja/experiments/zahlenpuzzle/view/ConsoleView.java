@@ -127,7 +127,7 @@ public class ConsoleView {
     private List<String> getTokens(Board board) {
         ArrayList<String> tokens = new ArrayList<>();
 
-        for (Token token : board) {
+        for (Token token : board.tokens()) {
             tokens.add(token.toString());
         }
 
